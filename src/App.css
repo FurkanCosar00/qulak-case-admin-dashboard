@@ -1,0 +1,289 @@
+/* CSS RESET */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* STYLE */
+.header {
+    width: 375px;
+    margin: 0 auto;
+}
+
+.sidebarTitle h5 {
+    margin: 0;
+    color: #5F6D7E;
+}
+
+.bottomTitle p {
+    margin: 0;
+    width: 178px;
+}
+
+.subscriptionPlan {
+    width: 256px;
+}
+
+.teamItem p {
+    margin: 0;
+}
+
+.teamItem {
+    width: 272px;
+}
+
+.teamArea {
+    width: 314px;
+    height: 540px;
+}
+
+.teamArea button {
+    width: 272px;
+}
+
+.teamMaterialsTransactions {
+    margin: 0 auto;
+}
+
+.section3 {
+    margin: 0 auto;
+}
+
+.materialItem p {
+    margin: 0;
+}
+
+.materialItem {
+    width: 272px;
+}
+
+.materialArea {
+    width: 314px;
+    height: 540px;
+}
+
+.materialButtons button {
+    width: 132px;
+}
+
+.transactionItem p {
+    margin: 0;
+}
+
+.transactionItem {
+    width: 272px;
+}
+
+.transactionArea {
+    width: 314px;
+    height: 526px;
+}
+
+.transactionBottom p {
+    margin: 0;
+}
+
+.transactionBottom img {
+    padding-top: 3px;
+}
+
+.content {
+    margin: 0 auto;
+    width: auto;
+}
+
+.revenue {
+    width: 314px;
+}
+
+.revenue h6 {
+    width: 200px;
+}
+
+.dollar p {
+    margin: 0;
+}
+
+.advancedFooter p {
+    margin: 0;
+}
+
+.mobileDarkMode {
+    background-color: transparent;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .advancedGraphic {
+        width: 314px;
+    }
+
+    .content {
+        width: 314px;
+    }
+
+    .titleButtons {
+        width: 314px;
+    }
+}
+
+.darkMode {
+    padding: 10px 12px;
+    border: none;
+    background-color: transparent;
+}
+
+.offcanvas-body {
+    padding: 0;
+}
+
+.general {
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.dark {
+    .main {
+        background-color: #151B28 !important;
+    }
+
+    .subscriptionPlan {
+        background-color: #2C3444 !important;
+    }
+
+    .teamArea, .materialArea, .transactionArea, .sideIcons, .sideBar, .revenue, 
+    .advancedFooter, .advancedHeader, .chart, .advancedGraphic {
+        background-color: #1C2534 !important;
+        border-color: #2E3545 !important;
+    }
+
+    .teamItem, .materialItem, .transactionItem {
+        border-color: #2E3545 !important;
+    }
+
+    .textsAndTitle h4 {
+        color: #F9F9F9;
+    }
+
+    .editBtn {
+        background-color: #2E3545;
+        color: #F9F9F9;
+    }
+
+    .teamText h5, .materialsText h5, .transactionText h5, .teamItem p, .materialItem p, .transactionItem p {
+        color: #F9F9F9 !important;
+    }
+
+    .teamText img, .materialsText img, .teamItem p img, 
+    .materialItem img:nth-child(2), .transactionText h5, 
+    .revenue img:nth-child(2), .advancedHeader img, 
+    .sidebarTitle img, .topImg, .headerPageLogo, 
+    .hamburgerMenu, .btn-close, .headerHamburgerLogo, 
+    .sidebarBottomWhite {
+        filter: brightness(0) invert(1);
+    }
+
+    .cancelBtn {
+        background-color: #2E3545;
+        color: #F9F9F9;
+    }
+
+    .offline span {
+        background-color: #2C3444 !important;
+        color: #151B28 !important;
+    }
+
+    .done {
+        color: #F0FAF0 !important;
+        background-color: #5DC264 !important;
+    }
+
+    .failed {
+        color: #F0FAF0 !important;
+        background-color: #F04438 !important;
+    }
+
+    .graphicsTexts p, .dollar p, .advancedFooter p, 
+    .contentTitle p, .sidebarTitle h5, 
+    .sidebarTop ul li, .subsText p {
+        color: #A5ACBA;
+    }
+
+    .revenue h6, .bottomTitle p, 
+    .subsText h6, .events {
+        color: #F9F9F9;
+    }
+
+    .dollar p span {
+        background-color: #5390F8;
+        color: #F9F9F9;
+        padding: 2px 8px;
+        border-radius: 5px;
+        margin-right: 3px;
+    }
+
+    .revenue:nth-child(2) .dollar p span {
+        background-color: #F04438 !important;
+    }
+
+    .revenue:nth-child(3) .dollar p span {
+        background-color: #5DC264 !important;
+    }
+
+    .general {
+        background-color: #333B48 !important;
+    }
+
+    .sideBar input {
+        background-color: #2C3444;
+    }
+
+    .sideBar input::placeholder {
+        color: #A5ACBA;
+    }
+
+    .events {
+        border-left: 3px solid #F9F9F9 !important;
+        background-color: #F9F9F918 !important;
+    }
+
+    .otherImages {
+        filter: brightness(0) invert(0.8);
+    }
+
+    .sideIcons .sideTop li:nth-child(1) {
+        filter: brightness(0) invert(1);
+    }
+
+    .header {
+        background-color: #151B28 !important;
+    }
+}
