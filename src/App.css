@@ -166,7 +166,7 @@ ul {
 }
 
 .general {
-    padding: 12px;
+    padding: 13px;
     border-radius: 5px;
 }
 
@@ -259,7 +259,8 @@ ul {
     }
 
     .general {
-        background-color: #333B48 !important;
+        filter: brightness(0) invert(0.8);
+
     }
 
     .sideBar input {
@@ -268,11 +269,6 @@ ul {
 
     .sideBar input::placeholder {
         color: #A5ACBA;
-    }
-
-    .events {
-        border-left: 3px solid #F9F9F9 !important;
-        background-color: #F9F9F918 !important;
     }
 
     .otherImages {
@@ -286,4 +282,91 @@ ul {
     .header {
         background-color: #151B28 !important;
     }
+
+    .offcanvas-header {
+        background-color: #1C2534;
+    }
+
+    .offcanvas-title {
+        color: #A5ACBA;
+    }
+
+    .offcanvas-header img {
+        filter: brightness(0) invert(0.75);
+    }
+
+    .offcanvas {
+        border-color: #2E3545 !important;
+    }
+
+    .events img {
+        filter: brightness(0) invert(1);
+    }
+}
+
+.offcanvas {
+    margin-left: 81px;
+    width: 272px !important;
+}
+
+.offcanvas-body {
+    width: 272px;
+    display: flex;
+    flex-direction: column;
+    gap: 300px; 
+}
+
+.offcanvas-header {
+    width: 272px;
+}
+
+.offcanvas-header img {
+    padding-top: 3px;
+}
+
+.sideTop button {
+    background-color: transparent;
+    border: none;
+    width: 55px;
+    padding: 0;
+}
+
+.sideTop button:active {
+    background-color: transparent !important;
+}
+
+.sideTop button:hover {
+    background-color: transparent;
+}
+
+.offcanvas-header button {
+    background-color: transparent;
+    border: none;
+}
+
+.sideIcons {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sideTop, .sideBotttom {
+    width: 48px;
+}
+
+.sideBar {
+    height: 100vh;
+}
+
+.lightImg {
+    width: 29px;
+}
+
+.deleteImg {
+    display: none;
+}
+
+.events img {
+    filter: brightness(0) invert(0.4);
 }

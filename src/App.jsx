@@ -5,8 +5,12 @@ import './App.css'
 function App() {
    return (
     <div className="main d-flex flex-column flex-md-row bg-body-tertiary">
-      <Header />
-      <SideSection />
+      <Header />  
+
+      <div className="sideSection d-none d-md-flex bg-white">
+        <SideIcons />
+      </div>
+
       <Content />
     </div>
   )
@@ -97,31 +101,46 @@ function Header() {
   )
 }
 
-function SideSection() {
-  return (
-    <div className="sideSection d-none d-md-flex bg-white">
-      <SideIcons />
-      <SideBar />
-    </div>
-  )
-}
-
 function SideIcons() {
   const [theme, setTheme] = useState('light');
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     if (theme === "dark") {
-      document.body.classList.add("dark")
+      document.body.classList.add("dark");
+      document.querySelector('.lightImg').classList.remove('deleteImg');
+      document.querySelector('.darkImg').classList.add('deleteImg');
     } else {
-      document.body.classList.remove("dark")
-    }}, [theme])
+      document.body.classList.remove("dark");
+      document.querySelector('.lightImg').classList.add('deleteImg');
+      document.querySelector('.darkImg').classList.remove('deleteImg');
+    }
+  }, [theme]);
 
-    return (
+  const handleClick = () => {
+    setIsVisible(!isVisible);
+  };
+
+  return (
     <div className="sideIcons d-flex flex-column justify-content-between p-3">
+      <div className="offcanvas border-start border-end offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabIndex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div className="offcanvas-header d-flex align-items-center gap-1">
+          <button type="button" data-bs-dismiss="offcanvas">
+            <img src="./assets/images/sidebar-images/backArrow.png" alt="" />
+          </button>
+          <h5 className="offcanvas-title" id="offcanvasScrollingLabel">Lookscout Dashboard</h5>
+        </div>
+        <div className="offcanvas-body">
+          <SideBar isVisible={isVisible} />
+        </div>
+      </div>
+
       <ul className='sideTop'>
-        <li><img className='otherImages' src="./assets/images/side-icon-images/sidebarIcon.png" alt="" /></li>
+        <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+          <li><img className='otherImages' src="./assets/images/side-icon-images/sidebarIcon.png" alt="" /></li>
+        </button>
         <li><img className='otherImages' src="./assets/images/side-icon-images/searchIcon.png" alt="" /></li>
-        <li><img className='general bg-primary bg-opacity-10' src="./assets/images/side-icon-images/general.png" alt="" /></li>
+        <li><button onClick={handleClick}><img className='general' src="./assets/images/side-icon-images/general.png" alt="" /></button></li>
         <li><img className='otherImages' src="./assets/images/side-icon-images/calendarIcon.png" alt="" /></li>
         <li><img className='otherImages' src="./assets/images/side-icon-images/graphicIcon.png" alt="" /></li>
       </ul>
@@ -129,7 +148,8 @@ function SideIcons() {
       <ul className='sideBottom'>
         <li>
           <button className='darkMode' onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-            <img className='otherImages' src="./assets/images/side-icon-images/darkMode.png" alt="" />
+            <img className='otherImages darkImg' src="./assets/images/side-icon-images/darkMode.png" alt="" />
+            <img className='otherImages lightImg' src="./assets/images/side-icon-images/lightMode.png" alt="" />
           </button>
         </li>
 
@@ -137,50 +157,50 @@ function SideIcons() {
         <li><img className='otherImages' src="./assets/images/side-icon-images/exitIcon.png" alt="" /></li>
       </ul>
     </div>
-  )
+  );
 }
 
-function SideBar() {
+function SideBar({ isVisible }) {
   return (
-      <div className="sideBar border-start border-end d-flex flex-column justify-content-between py-3">
-        <div className="sidebarTop d-flex flex-column gap-4">
-          <div className="sidebarTitle d-flex align-items-center gap-3 px-4">
-            <img src="./assets/images/sidebar-images/backArrow.png" alt="" />
-            <h5>Lookscout Dashboard</h5>
-          </div>
+    <div className="sideBar d-flex flex-column justify-content-between py-3">
+      <div className="sidebarTop d-flex flex-column gap-4">
+        <input className='mx-4 px-3 py-1 border-secondary border-opacity-10 rounded-1' type="text" placeholder='Search here...' />
 
-          <input className='mx-4 px-3 py-1 border-secondary border-opacity-10 rounded-1' type="text" placeholder='Search here...'/>
-
-          <ul className='d-flex flex-column gap-1'>
+        {isVisible && (
+          <ul className='deneme d-flex flex-column gap-1'>
             <li className='d-flex align-items-center gap-3 px-4 py-2'><img className='topImg' src="./assets/images/sidebar-images/general.png" alt="" />General</li>
-            <li className='d-flex align-items-center justify-content-between px-4 py-2'><span className='d-flex align-items-center gap-3'><img className='topImg' src="./assets/images/sidebar-images/messages.png" alt="" />Messages</span> <img src="./assets/images/sidebar-images/notificationCounter.png" alt="" /></li>
+            <li className='d-flex align-items-center justify-content-between px-4 py-2'>
+              <span className='d-flex align-items-center gap-3'><img className='topImg' src="./assets/images/sidebar-images/messages.png" alt="" />Messages</span>
+              <img src="./assets/images/sidebar-images/notificationCounter.png" alt="" />
+            </li>
             <li className='d-flex align-items-center gap-3 px-4 py-2'><img className='topImg' src="./assets/images/sidebar-images/notifications.png" alt="" />Notifications</li>
             <li className='d-flex align-items-center gap-3 px-4 py-2'><img className='topImg' src="./assets/images/sidebar-images/users.png" alt="" />Users</li>
-            <li className='events d-flex align-items-center gap-3 px-4 py-2 border-start border-primary border-3 bg-primary bg-opacity-10'><img src="./assets/images/sidebar-images/eventslogs.png" alt="" />Events & Logs</li>
+            <li className='events d-flex align-items-center gap-3 px-4 py-2'><img src="./assets/images/sidebar-images/eventslogs.png" alt="" />Events & Logs</li>
             <li className='d-flex align-items-center gap-3 px-4 py-2'><img className='topImg' src="./assets/images/sidebar-images/organization.png" alt="" />Organization</li>
             <li className='d-flex align-items-center gap-3 px-4 py-2'><img className='topImg' src="./assets/images/sidebar-images/teams.png" alt="" />Teams</li>
           </ul>
+        )}
+      </div>
+
+      <div className="sidebarBottom d-flex flex-column gap-4">
+        <div className="bottomTitle d-flex align-items-center gap-3 px-4 py-2">
+          <img src="./assets/images/sidebar-images/profilePicture.png" alt="" />
+          <p>Brian Ford</p>
+          <img className='sidebarBottomWhite' src="./assets/images/sidebar-images/dots.png" alt="" />
         </div>
 
-        <div className="sidebarBottom d-flex flex-column gap-4">
-          <div className="bottomTitle d-flex align-items-center gap-3 px-4 py-2">
-            <img src="./assets/images/sidebar-images/profilePicture.png" alt="" />
-            <p>Brian Ford</p>
-            <img className='sidebarBottomWhite' src="./assets/images/sidebar-images/dots.png" alt="" />
+        <div className="subscriptionPlan d-flex align-items-start justify-content-between flex-wrap bg-body-tertiary p-3 mx-2 rounded-3">
+          <img src="./assets/images/sidebar-images/inProgress.png" alt="" />
+          <img className='sidebarBottomWhite' src="./assets/images/sidebar-images/closeCross.png" alt="" />
+          <div className="subsText">
+            <h6>Subscription Plan</h6>
+            <p>Your Subscription plan will expire soon please upgrade!</p>
           </div>
-
-          <div className="subscriptionPlan d-flex align-items-start justify-content-between flex-wrap mx-4 bg-body-tertiary p-3 rounded-3">
-            <img src="./assets/images/sidebar-images/inProgress.png" alt="" />
-            <img className='sidebarBottomWhite' src="./assets/images/sidebar-images/closeCross.png" alt="" />
-            <div className="subsText">
-              <h6>Subscription Plan</h6>
-              <p>Your Subscription plan will expire soon please upgrade!</p>
-            </div>
-            <h6 className='text-primary'>Upgrade</h6>
-          </div>
+          <h6 className='text-primary'>Upgrade</h6>
         </div>
       </div>
-  )
+    </div>
+  );
 }
 
 function Content() {
