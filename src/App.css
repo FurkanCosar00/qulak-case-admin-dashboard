@@ -295,6 +295,10 @@ ul {
         filter: brightness(0) invert(0.75);
     }
 
+    .lightImg {
+        filter: brightness(0) invert(0.6);
+    }
+
     .offcanvas {
         border-color: #2E3545 !important;
     }
@@ -302,25 +306,34 @@ ul {
     .events img {
         filter: brightness(0) invert(1);
     }
+
+    .generalButton {
+        filter: brightness(0) invert(0.5);
+
+    }
+
+    .header {
+        border-color: #2E3545 !important;
+    }
 }
 
-.offcanvas {
+.desktopOc {
     margin-left: 81px;
     width: 272px !important;
 }
 
-.offcanvas-body {
+.dektopOcb {
     width: 272px;
     display: flex;
     flex-direction: column;
     gap: 300px; 
 }
 
-.offcanvas-header {
+.dektopOch {
     width: 272px;
 }
 
-.offcanvas-header img {
+.dektopOch img {
     padding-top: 3px;
 }
 
@@ -339,7 +352,7 @@ ul {
     background-color: transparent;
 }
 
-.offcanvas-header button {
+.dektopOch button {
     background-color: transparent;
     border: none;
 }
@@ -359,14 +372,25 @@ ul {
     height: 100vh;
 }
 
+
+.events img {
+    filter: brightness(0) invert(0.4);
+}
+
+.generalMobile {
+    width: 25px !important;
+    margin: 0 auto !important;
+}
+
 .lightImg {
     width: 29px;
 }
 
 .deleteImg {
-    display: none;
+    display: none !important;
 }
 
-.events img {
-    filter: brightness(0) invert(0.4);
+.generalButton {
+    background-color: transparent !important;
+    border: none !important;
 }

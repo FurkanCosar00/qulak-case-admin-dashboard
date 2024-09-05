@@ -18,6 +18,7 @@ function App() {
 
 function Header() {
   const [theme, setTheme] = useState('light');
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     if (theme === "dark") {
@@ -25,6 +26,10 @@ function Header() {
     } else {
       document.body.classList.remove("dark")
     }}, [theme])
+
+    const handleClick = () => {
+      setIsVisible(!isVisible);
+    };
 
   return (
     <div className="header d-flex d-md-none justify-content-between align-items-center p-3 bg-white border-bottom">
@@ -45,19 +50,21 @@ function Header() {
                 </div>
 
                 <input className='mx-4 px-3 py-1 border-secondary border-opacity-10 rounded-1' type="text" placeholder='Search here...' />
-
-                <ul className='d-flex flex-column gap-1'>
-                  <li className='d-flex align-items-center gap-3 px-4 py-2'><img src="./assets/images/sidebar-images/general.png" alt="" />General</li>
-                  <li className='d-flex align-items-center justify-content-between px-4 py-2'>
-                    <span className='d-flex align-items-center gap-3'><img src="./assets/images/sidebar-images/messages.png" alt="" />Messages</span>
-                    <img src="./assets/images/sidebar-images/notificationCounter.png" alt="" />
-                  </li>
-                  <li className='d-flex align-items-center gap-3 px-4 py-2'><img src="./assets/images/sidebar-images/notifications.png" alt="" />Notifications</li>
-                  <li className='d-flex align-items-center gap-3 px-4 py-2'><img src="./assets/images/sidebar-images/users.png" alt="" />Users</li>
-                  <li className='d-flex align-items-center gap-3 px-4 py-2 border-start border-primary border-3 bg-primary bg-opacity-10'><img src="./assets/images/sidebar-images/eventslogs.png" alt="" />Events & Logs</li>
-                  <li className='d-flex align-items-center gap-3 px-4 py-2'><img src="./assets/images/sidebar-images/organization.png" alt="" />Organization</li>
-                  <li className='d-flex align-items-center gap-3 px-4 py-2'><img src="./assets/images/sidebar-images/teams.png" alt="" />Teams</li>
-                </ul>
+                
+                {isVisible && (
+                  <ul className='d-flex flex-column gap-1'>
+                    <li className='d-flex align-items-center gap-3 px-4 py-2'><img className='topImg' src="./assets/images/sidebar-images/general.png" alt="" />General</li>
+                    <li className='d-flex align-items-center justify-content-between px-4 py-2'>
+                      <span className='d-flex align-items-center gap-3'><img className='topImg' src="./assets/images/sidebar-images/messages.png" alt="" />Messages</span>
+                      <img src="./assets/images/sidebar-images/notificationCounter.png" alt="" />
+                    </li>
+                    <li className='d-flex align-items-center gap-3 px-4 py-2'><img className='topImg' src="./assets/images/sidebar-images/notifications.png" alt="" />Notifications</li>
+                    <li className='d-flex align-items-center gap-3 px-4 py-2'><img className='topImg' src="./assets/images/sidebar-images/users.png" alt="" />Users</li>
+                    <li className='events d-flex align-items-center gap-3 px-4 py-2'><img src="./assets/images/sidebar-images/eventslogs.png" alt="" />Events & Logs</li>
+                    <li className='d-flex align-items-center gap-3 px-4 py-2'><img className='topImg' src="./assets/images/sidebar-images/organization.png" alt="" />Organization</li>
+                    <li className='d-flex align-items-center gap-3 px-4 py-2'><img className='topImg' src="./assets/images/sidebar-images/teams.png" alt="" />Teams</li>
+                  </ul>
+                )}
               </div>
 
               <div className="sidebarBottom d-flex flex-column gap-4">
@@ -82,6 +89,7 @@ function Header() {
             <div className="sideIcons d-flex flex-column justify-content-between p-3">
               <ul>
                 <li><img className='headerHamburgerLogo' src="./assets/images/side-icon-images/sidebarIcon.png" alt="" /></li>
+                <li><button className='generalButton' onClick={handleClick}><img className='general' src="./assets/images/side-icon-images/general.png" alt="" /></button></li>
                 <li><img src="./assets/images/side-icon-images/searchIcon.png" alt="" /></li>
                 <li><img src="./assets/images/side-icon-images/collapseIcon.png" alt="" /></li>
                 <li><img src="./assets/images/side-icon-images/calendarIcon.png" alt="" /></li>
@@ -123,14 +131,14 @@ function SideIcons() {
 
   return (
     <div className="sideIcons d-flex flex-column justify-content-between p-3">
-      <div className="offcanvas border-start border-end offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabIndex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-        <div className="offcanvas-header d-flex align-items-center gap-1">
+      <div className="desktopOc offcanvas border-start border-end offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabIndex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div className="dektopOch offcanvas-header d-flex align-items-center gap-1">
           <button type="button" data-bs-dismiss="offcanvas">
             <img src="./assets/images/sidebar-images/backArrow.png" alt="" />
           </button>
           <h5 className="offcanvas-title" id="offcanvasScrollingLabel">Lookscout Dashboard</h5>
         </div>
-        <div className="offcanvas-body">
+        <div className="dektopOcb offcanvas-body">
           <SideBar isVisible={isVisible} />
         </div>
       </div>
@@ -167,7 +175,7 @@ function SideBar({ isVisible }) {
         <input className='mx-4 px-3 py-1 border-secondary border-opacity-10 rounded-1' type="text" placeholder='Search here...' />
 
         {isVisible && (
-          <ul className='deneme d-flex flex-column gap-1'>
+          <ul className='d-flex flex-column gap-1'>
             <li className='d-flex align-items-center gap-3 px-4 py-2'><img className='topImg' src="./assets/images/sidebar-images/general.png" alt="" />General</li>
             <li className='d-flex align-items-center justify-content-between px-4 py-2'>
               <span className='d-flex align-items-center gap-3'><img className='topImg' src="./assets/images/sidebar-images/messages.png" alt="" />Messages</span>
