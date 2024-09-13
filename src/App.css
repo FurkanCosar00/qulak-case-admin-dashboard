@@ -260,7 +260,17 @@ ul {
 
     .general {
         filter: brightness(0) invert(0.8);
+    }
 
+    .sidebarTop ul li:hover {
+        background-color: #333B48;
+        border-left: 3px solid #F9F9F9;
+        color: #F9F9F9;
+    }
+    
+    .actived img {
+        background-color: #333B48;
+        filter: brightness(1.5) invert(0);
     }
 
     .sideBar input {
@@ -393,4 +403,19 @@ ul {
 .generalButton {
     background-color: transparent !important;
     border: none !important;
+}
+
+.sidebarTop ul li {
+    border-left: 3px solid transparent;
+}
+
+.sidebarTop ul li:hover {
+    background-color: #F3F9FE;
+    border-left: 3px solid #437EF7;
+    color: #437EF7;
+    filter: grayscale(0%) sepia(100%) hue-rotate(180deg) saturate(200%);
+}
+
+.actived img {
+    background-color: #F3F9FE;
 }

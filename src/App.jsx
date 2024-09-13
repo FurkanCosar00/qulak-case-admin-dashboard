@@ -148,7 +148,7 @@ function SideIcons() {
           <li><img className='otherImages' src="./assets/images/side-icon-images/sidebarIcon.png" alt="" /></li>
         </button>
         <li><img className='otherImages' src="./assets/images/side-icon-images/searchIcon.png" alt="" /></li>
-        <li><button onClick={handleClick}><img className='general' src="./assets/images/side-icon-images/general.png" alt="" /></button></li>
+        <li><button onClick={handleClick} className={isVisible ? 'actived' : ''} ><img className='general' src="./assets/images/side-icon-images/general.png" alt="" /></button></li>
         <li><img className='otherImages' src="./assets/images/side-icon-images/calendarIcon.png" alt="" /></li>
         <li><img className='otherImages' src="./assets/images/side-icon-images/graphicIcon.png" alt="" /></li>
       </ul>
@@ -187,7 +187,7 @@ function SideBar({ isVisible }) {
             <li className='d-flex align-items-center gap-3 px-4 py-2'><img className='topImg' src="./assets/images/sidebar-images/organization.png" alt="" />Organization</li>
             <li className='d-flex align-items-center gap-3 px-4 py-2'><img className='topImg' src="./assets/images/sidebar-images/teams.png" alt="" />Teams</li>
           </ul>
-        )}
+        )}  
       </div>
 
       <div className="sidebarBottom d-flex flex-column gap-4">
